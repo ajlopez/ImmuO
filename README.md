@@ -53,7 +53,11 @@ TBD
 
 ## Versions
 
-- 0.0.1 Under development
+- 0.0.1 Published
+
+## To do
+
+Native array support.
 
 ## Contribution
 
