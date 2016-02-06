@@ -61,6 +61,7 @@ TBD
 ## Versions
 
 - 0.0.1 Published
+- 0.0.1 Published, using Object.defineProperty, immutable properties
 
 ## To do
 
