@@ -47,6 +47,13 @@ console.log(newstate.person.name); // 'Adam'
 console.log(newstate.person.age);  // 800
 ```
 
+The properties are immutable:
+```
+var state = immuo();
+var newstate = state.set('person', {});
+newstate.person = { name: 'Adam' }; // invalid operation!!!
+```
+
 ## Samples
 
 TBD
