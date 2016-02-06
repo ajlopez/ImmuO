@@ -8,3 +8,13 @@ exports['create object'] = function (test) {
     test.equal(typeof obj, 'object');
 };
 
+exports['set property'] = function (test) {
+    var obj = immuo();
+    
+    var newobj = obj.set('name', 'Adam');
+    
+    test.ok(newobj);
+    test.strictEqual(obj.name, undefined);
+    test.equal(newobj.name, 'Adam');
+};
+
