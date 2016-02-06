@@ -21,9 +21,31 @@ var immuo = require('immuo');
 ```
 
 Reference in your browser
-
 TBD
 
+Create an immutable object:
+
+```
+var state = immuo();
+```
+
+Setting a property returns the new immutable object:
+```
+var newstate = state.set('name', 'Adam');
+console.log(newstate.name); // 'Adam'
+console.log(state.name); // undefined
+```
+
+Setting a property (nested or not) returns the new top immutable object
+```
+var state = immuo();
+var newstate = state.set('person', {});
+newstate = newstate.person.set('name', 'Adam');
+newstate = newstate.person.set('age', 800);
+
+console.log(newstate.person.name); // 'Adam'
+console.log(newstate.person.age);  // 800
+```
 
 ## Samples
 
