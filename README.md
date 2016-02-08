@@ -54,6 +54,25 @@ var newstate = state.set('person', {});
 newstate.person = { name: 'Adam' }; // invalid operation!!!
 ```
 
+You can get a cloned detached object, and modify it:
+
+```
+var state1 = immuo();
+var state2 = state1.set('person', {});
+
+// cloned and detached person
+var person = state2.person.get();
+
+// now, each set returns a new person, not a new state
+var newperson = person.set('name', 'Adam')
+    .set('age', 800)
+    .set('wife', 'Eve');
+    
+// attach to state
+var state3 = state2.set('person', newperson);
+```
+
+
 ## Samples
 
 TBD
@@ -62,7 +81,7 @@ TBD
 
 - 0.0.1 Published
 - 0.0.2 Published, using Object.defineProperty, immutable properties
-- 0.0.3 Under development
+- 0.0.3 Published, .get method for detached object
 
 ## To do
 
