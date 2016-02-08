@@ -29,3 +29,22 @@ exports['set nested property'] = function (test) {
     test.equal(newobj.person.name, 'Adam');
 };
 
+exports['get detached object'] = function (test) {
+    var obj = immuo();
+    var obj2 = obj.set('person', {});
+    
+    var person = obj2.person.get();
+    
+    var newperson = person.set('name', 'Adam')
+        .set('age', 800)
+        .set('wife', 'Eve');
+        
+    var newobj = obj2.set('person', newperson);
+    
+    test.ok(newobj);
+    test.strictEqual(obj.person, undefined);
+    test.ok(newobj.person);
+    test.equal(newobj.person.name, 'Adam');
+    test.equal(newobj.person.age, 800);
+    test.equal(newobj.person.wife, 'Eve');
+};
